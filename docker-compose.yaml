@@ -1,0 +1,12 @@
+version: '3.8'
+services:
+  web:
+    build: .
+    image: 'bdns-resolver'
+    container_name: bdns_resolver
+    ports:
+      - '8000:8000'
+    volumes:
+      - './certs/:/certs/:ro'
+    env_file:
+      - './config/bdns-resolver.env'
